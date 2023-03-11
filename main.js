@@ -1,15 +1,26 @@
 console.log("Pagina iniciada");
 
-let primerPaso = null;
-let segundoPaso = null;
-let tercerPaso = null;
-let cuartoPaso = null;
-let quintoPaso = null;
+let cotizarAutomovil = null;
+let marcaAutomovil = null;
+let modeloAutomovil = null;
+let anioAutomovil = null;
+let cotizarOtroAutomovil = null;
 let marca = null;
 let modelo = null;
 let anio = null;
 let paso = 0;
 let opcion = null;
+
+
+/* Almaceno marcas en el array */
+let arrayMarcas = ["Ford", "Chevrolet", "Fiat"];
+/* Agrego marcas nuevas al arrayMarcas */
+arrayMarcas.push("Citroen", "Peugeot");
+console.log(arrayMarcas);
+/* ejecuto el forEach*/
+arrayMarcas.forEach((marca)=>{
+    console.log(marca);
+})
 
 
 const ford = `
@@ -36,7 +47,10 @@ const fiat = `
     4.- Punto
 `;
 
+
 inicio();
+
+/*  inicio funcion para tener opciones, ya sea para que pueda volver hacia atras, o salir */
 
 function inicio(){
     console.log(`Opcion:${opcion}`);
@@ -102,6 +116,8 @@ function calcularModelos() {
     return modelos;
 }
 
+/* comienza el simulador con la opcion de cotizar o salir */
+
 function paso1() {
     paso = 1;
     return window.prompt(`
@@ -112,6 +128,8 @@ function paso1() {
             0.- Salir
     `);
 }
+
+/* elijo la marca de vehiculo que deseo cotizar ahora , con opcion de salir o volver hacia atras */
 
 function paso2() {
     paso = 2;
@@ -128,6 +146,8 @@ function paso2() {
     `);
 }
 
+/* selecciono el modelo del vehiculo a cotizar, con opcion de salir o volver hacia atras*/
+
 function paso3() {
     paso = 3; 
     var modelos = calcularModelos(opcion);
@@ -140,6 +160,8 @@ function paso3() {
     `)
 }
 
+/* introduzco el año del vehiculo, con opcion de salir o volver hacia atras */
+
 function paso4() {
     paso = 4;
     return window.prompt(`
@@ -149,6 +171,8 @@ function paso4() {
         0.- Salir
     `)
 }
+
+/* me devuleve el resultado total, detalladamente ,con opcion de salir o volver a cotizar otro vehiculo */ 
 
 function paso5() {
     paso = 5;
@@ -197,4 +221,5 @@ function resultadoFinal() {
         ---------------------------------------------
         Total: $ ${total}
     `
+
 }
